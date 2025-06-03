@@ -1,40 +1,43 @@
-#include <stdio.h>
+#include<stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+#define LINHAS 10// Função para definir a quantidade de linhas
+#define COLUNAS 10//Função para definir a quantidade de colunas
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
+int main(){
+    char Letra_coluna[10] = {'A','B','C','D','E','F','G','H','I','J'};//Array de caracteres para localização do tabuleiro
+    int Tabuleiro[LINHAS][COLUNAS];//vetor bidimenssional "Matriz" , decarado as  funções DEFINE para facilitar na dimenssão da matriz
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
 
-    return 0;
+    printf("TABULEIRO DE BATALHA NAVAL\n");//print com o nome do tabuleiro 
+    
+    printf("   ");//espaço para ajustar o enquadramento da matriz 
+
+    for(int j = 0; j < COLUNAS; j++) {// função for usada pra chamar o array de caracteres de A até J... 
+        printf("%c ", Letra_coluna[j]);//imprenssão do array ou vetor de caracteres 
+
+    }
+    printf("\n");// contra barra n para pular  uma linha 
+
+    for (int i = 0; i < LINHAS; i++) {// função for com a condição i<LINHAS que é = a 10 declarada na função Define.
+        printf("%2d ", i+1);//print para imprimir os numeros para localização do tabuleiro  
+        for (int j = 0; j < COLUNAS; j++){//for aninhado para coluna que irá  ser j< COLUNAS  que é = 10  declarado na função DEFINE 
+             
+            Tabuleiro[i][j] = 0;// inicialização da matriz ela será toda = 0 que será o mar como solicitado no desafio
+        
+    for(int j = 2; j < 5; j++) {// for para posicionamento do navio na horizontal 
+        Tabuleiro[2][j] = 3;//o índice 2 que será a linha (3) irá receber o valor 3 .
+        for(int i = 2; i < 5; i++) {// for para posicionamento do navio na vertical 
+            Tabuleiro[i][6] = 3;// O Índice 6 que será letra (G) irá receber o valor 3
+        }
+    }   
+        printf("%d ", Tabuleiro[i][j]);//impressão do tabuleiro 
+    
+    }
+        printf("\n");//contra barra N para pular uma linha . 
+    
+}
+return 0;
+
+
 }
